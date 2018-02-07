@@ -1,5 +1,5 @@
-import post from './post';
+import postReducer from './postReducer';
 
 export default {
-  post
+  post: postReducer
 }

@@ -1,12 +1,12 @@
 import Types from './types';
-import postService from '../services/post';
+import postService from '../services/postService';
 
 export const getPosts = () => async dispatch => {
   try {
-    const response = await postService.get();
+    const posts = await postService.get();
     dispatch({
       type: Types.post.GET_POSTS,
-      posts: response.data
+      posts
     });
   } catch(error) {
     console.error(error.toString());

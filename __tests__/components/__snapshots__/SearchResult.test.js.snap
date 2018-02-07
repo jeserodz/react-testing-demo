@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test SearchResult component Should render 1`] = `
+<div
+  className="sc-bdVaJa jBDajD"
+>
+  <div
+    className="sc-bwzfXH ivbqEn"
+  >
+    <h1
+      className="sc-htpNat hgRIRP"
+    >
+      Test title
+    </h1>
+    <button
+      className="sc-bxivhb hBzIOl"
+      onClick={[Function]}
+    />
+  </div>
+  <div
+    className="sc-ifAKCX kqqTha"
+  >
+    Test body
+  </div>
+</div>
+`;

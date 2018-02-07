@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test SearchBar component Should render 1`] = `
+<div
+  className="sc-bdVaJa isQJlR"
+>
+  <input
+    className="sc-bwzfXH izmQdJ"
+  />
+</div>
+`;

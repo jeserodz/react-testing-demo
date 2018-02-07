@@ -1,5 +1,5 @@
-import * as post from './post';
+import * as postActions from './postActions';
 
 export default {
-  post
+  post: postActions
 }
