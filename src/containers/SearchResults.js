@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SearchResult from '../components/SearchResult';
 
-class SearchResults extends Component {
+export class SearchResults extends Component {
   renderResults() {
     const { posts } = this.props;
     return posts.map(post => (

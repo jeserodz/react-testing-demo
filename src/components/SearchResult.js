@@ -19,12 +19,13 @@ class SearchResult extends Component {
       <SearchResultHeader>
         <SearchResultTitle>{this.props.title}</SearchResultTitle>
         <SearchResultFavorite
+          id="favorite-button"
           favorited={this.state.favorited}
           onClick={this.onFavoriteClick}
         />
       </SearchResultHeader>
 
-      <SearchResultBody>
+      <SearchResultBody id="search-result-body">
         {this.props.body}
       </SearchResultBody>
     </Container>
