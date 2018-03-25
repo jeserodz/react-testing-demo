@@ -1,17 +1,17 @@
-import postReducer from '../../src/reducers/postReducer';
-import Types from '../../src/actions/types';
+import reducers from '../../src/reducers';
+import Actions from '../../src/actions';
 
 describe('Post reducer', () => {
 
   it('should have an initial state', () => {
     const previousState = undefined;
     const fakeAction = {};
-    expect(postReducer(previousState, fakeAction)).toEqual({
+    expect(reducers.post(previousState, fakeAction)).toEqual({
       posts: []
     });
   });
 
-  it('should handle post/GET_POSTS action', () => {
+  it(`should handle ${Actions.Types.post.GET_POSTS} action`, () => {
     const previousState = { 
       posts: [{
         "userId": 100,
@@ -22,7 +22,7 @@ describe('Post reducer', () => {
     };
 
     const action = {
-      type: Types.post.GET_POSTS,
+      type: Actions.Types.post.GET_POSTS,
       posts: [{
         "userId": 1,
         "id": 1,
@@ -31,7 +31,7 @@ describe('Post reducer', () => {
       }]
     };
 
-    expect(postReducer(previousState, action)).toEqual({
+    expect(reducers.post(previousState, action)).toEqual({
       posts: [{
         "userId": 1,
         "id": 1,

@@ -2,23 +2,22 @@ jest.mock('../../src/services/postService');
 
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import * as post from '../../src/actions/postActions';
-import Types from '../../src/actions/types';
+import Actions from '../../src/actions';
 
 const middlewares = [thunk] // add your middlewares like `redux-thunk`
 const mockStore = configureStore(middlewares)
 
 
-describe('Test post actions creator', () => {
+describe('Post Actions', () => {
 
-  it('should get all posts', () => {
+  it('GET posts', () => {
     // Mock Redux store (also provides utils to assert expected actions)
     const store = mockStore({});
 
     // The actions we expect to be dispatched by the actions creator we're testing
     const expectedActions = [
       { 
-        type: Types.post.GET_POSTS,
+        type: Actions.Types.post.GET_POSTS,
         posts: [
           {
             "userId": 1,
@@ -37,10 +36,20 @@ describe('Test post actions creator', () => {
     ];
 
     // Return a promise that is resolved when all actions are dispatched
-    return store.dispatch(post.getPosts())
+    return store
+      .dispatch(Actions.post.getPosts())
       .then(() => {
         // Get the actions dispatched and compare with expected actions
         expect(store.getActions()).toEqual(expectedActions);
+      });
+  });
+
+  it('Handle GET posts errors', () => {
+    const store = mockStore({});
+    return store
+      .dispatch(Actions.post.getPosts(-1))
+      .catch(() => {
+        expect(store.getState()).toEqual({})
       });
   });
 

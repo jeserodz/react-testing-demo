@@ -1,3 +1,4 @@
+import './styles';
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import store from './config/store';
@@ -8,6 +9,10 @@ import SearchResults from './containers/SearchResults';
 
 class App extends Component {
   
+  state = {
+    filter: '',
+  }
+
   componentWillMount() {
     store.dispatch(actions.post.getPosts());
   }
@@ -16,8 +21,8 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Container>
-          <SearchBar/>
-          <SearchResults/>
+          <SearchBar onSearch={filter => this.setState({ filter })} />
+          <SearchResults />
         </Container>
       </Provider>
     );
